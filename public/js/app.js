@@ -5259,9 +5259,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'ExampleComponent',
+  data: function data() {
+    return {
+      comment: null
+    };
+  },
+  methods: {
+    getComments: function getComments() {
+      var _this = this;
+
+      axios.get('/api/comments').then(function (res) {
+        _this.comment = res.data;
+        console.log(res);
+      });
+    }
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    this.getComments();
   }
 });
 
@@ -27874,32 +27893,30 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
+  return _c(
+    "div",
+    { staticClass: "container" },
+    _vm._l(_vm.comment, function (comments) {
+      return _c("div", [
+        _c("span", { staticClass: "username" }, [
+          _c("p", [
+            _c("b", [
               _vm._v(
-                "\n                    I'm an example component.\n                "
+                "\n\n            " + _vm._s(comments.name) + "\n            "
               ),
             ]),
           ]),
         ]),
-      ]),
-    ])
-  },
-]
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("\n            " + _vm._s(comments.message) + "\n        "),
+        ]),
+      ])
+    }),
+    0
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
