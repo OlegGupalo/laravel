@@ -81,7 +81,7 @@
 	                <ul class="post-list">
 	                	@foreach($likedPosts as $post)
 	                    <li class="post">
-	                        <a href="#!" class="post-permalink media">
+	                        <a href="{{route('post.show', $post->id)}}" class="post-permalink media">
 	                            <img src="{{url('storage/' . $post->preview_image)}}" alt="blog post">
 	                            <div class="media-body">
 	                                <h6 class="post-title">{{$post->title}}</h6>

@@ -60,6 +60,9 @@
                             </div>
                         </form>
                     </section>
+                    <div id="app">
+                        <example-component></example-component>
+                    </div>
                     @foreach($post->comments as $comment)
                       <div class="comment-text mb-5">
                         <span class="username">
@@ -70,7 +73,8 @@
                             </b>
                           </p>
                           <span class="text-muted float-right">{{$comment->getCarbonDate()->diffForHumans()}}</span>
-                        </span><!-- /.username -->
+                        </span>
+                        <!-- /.username -->
                         {{$comment->message}}
                       </div>
                     @endforeach

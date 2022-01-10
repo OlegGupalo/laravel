@@ -51,6 +51,11 @@
                             <a class="dropdown-item" href="{{route('personal.main.index')}}">Личный кабинет</a>
                         </li>
                         @endauth
+                        @can('view', auth()->user())
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="{{route('admin.main')}}">Админ панель</a>
+                            </li>
+                        @endcan
                     </ul>
                 </div>
             </nav>
